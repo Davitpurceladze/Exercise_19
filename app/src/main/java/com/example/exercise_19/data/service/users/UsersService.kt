@@ -1,6 +1,6 @@
-package com.example.exercise_19.data.service
+package com.example.exercise_19.data.service.users
 
-import com.example.exercise_19.data.model.UserDto
+import com.example.exercise_19.data.model.users.UserDto
 import retrofit2.Response
 import retrofit2.http.GET
 

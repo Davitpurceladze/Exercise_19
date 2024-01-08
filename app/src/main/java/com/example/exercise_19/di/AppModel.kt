@@ -1,6 +1,7 @@
 package com.example.exercise_19.di
 
-import com.example.exercise_19.data.service.UsersService
+import com.example.exercise_19.data.service.users.UsersService
+import com.example.exercise_19.data.service.usersDetails.UserDetailsService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -19,7 +20,7 @@ object AppModel {
 
     private const val USERS_LIST_URL = "https://run.mocky.io/"
     private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-    private const val DETAILED_USER_URL = "https://reqres.in/api/"
+    private const val DETAILED_USER_URL = "https://reqres.in/"
 
     @Singleton
     @Provides
@@ -47,6 +48,12 @@ object AppModel {
         return retrofit.create(UsersService::class.java)
     }
 
+
+    @Singleton
+    @Provides
+    fun provideGetUserDetailsService(@DetailedUserRetrofitClient retrofit: Retrofit) : UserDetailsService{
+        return retrofit.create(UserDetailsService::class.java)
+    }
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)

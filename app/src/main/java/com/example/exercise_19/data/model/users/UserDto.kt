@@ -1,4 +1,4 @@
-package com.example.exercise_19.data.model
+package com.example.exercise_19.data.model.users
 
 import com.squareup.moshi.Json
 
